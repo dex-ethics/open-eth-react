@@ -28,10 +28,11 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "ignore-styles": "^5.0.1",
-    "istanbul": "^0.4.5",
+    "istanbul": "next",
     "jsdom": "^10.1.0",
     "mocha": "^3.3.0",
     "react-addons-test-utils": "^15.5.1",
+    "react-hot-loader": "next",
     "style-loader": "^0.17.0",
     "webpack": "^2.5.0",
     "webpack-dev-server": "^2.4.5"
@@ -44,7 +45,12 @@
     "react-flexbox-grid": "^1.1.3",
     "react-redux": "^5.0.4",
     "react-rte": "^0.11.0",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.1",
+    "redux-router-kit": "^0.0.48",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "notes": "notes -s src/**",
@@ -52,7 +58,7 @@
     "test": "babel-node node_modules/.bin/babel-istanbul cover _mocha --delay -- --require node_modules/ignore-styles",
     "test-watch": "mocha --require babel-polyfill --require ignore-styles --compilers js:babel-register --watch --reporter min",
     "build": "webpack",
-    "serve": "webpack-dev-server --https --colors --progress --history-api-fallback"
+    "serve": "webpack-dev-server --https --colors --progress "
   },
   "description": "Ethical decission making",
   "repository": "git@github.com:dex-ethics/open-eth-react.git",
