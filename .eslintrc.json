@@ -11,6 +11,7 @@
       "imports": "always-multiline",
       "exports": "always-multiline",
       "functions": "never"
-   }]
+   }],
+   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
