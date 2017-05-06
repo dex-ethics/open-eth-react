@@ -3,15 +3,31 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  devServer: {
+    host: 'localhost',
+    port: 8080,
+    historyApiFallback: true,
+    // respond to 404s with index.html
+    hot: true,
+    // enable HMR on the server
+  },
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/index.js',
+  ],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'main.js',
   },
+  devtool: 'inline-source-map',
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     // Copy our app's index.html to the build folder.
     new CopyWebpackPlugin([{ from: './public/index.html', to: 'index.html' }]),
-    new webpack.NamedModulesPlugin(),
   ],
   node: {
     __filename: true,
