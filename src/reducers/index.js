@@ -1,7 +1,10 @@
 import { combineHandlers, reduxExports } from './redux-utils';
+import todos from './todos';
+import visibilityFilter from './visibility-filter';
 
-const actions = reduxExports(combineHandlers({}));
-
-export default {
-  ...actions,
-};
+export default reduxExports(
+  combineHandlers({
+    visibilityFilter,
+    todos,
+  })
+);
