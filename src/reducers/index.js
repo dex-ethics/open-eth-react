@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'redux-router-kit';
-import todos from './todos';
-import visibilityFilter from './visibility-filter';
+import { routerReducer as router } from 'redux-router-kit';
+import network from './network';
+import entities from './entities';
 
 export default combineReducers({
-  router: routerReducer,
-  visibilityFilter,
-  todos,
+  router,
+  network,
+  entities,
 });

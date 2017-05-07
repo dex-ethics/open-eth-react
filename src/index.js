@@ -11,6 +11,7 @@ import thunkMiddleware from 'redux-thunk';
 import reduxLogger from 'redux-logger';
 import reducer from './reducers';
 import appRoutes from './routes';
+import { fetchDilemmaIds, fetchDilemmas, fetchCases } from './api';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -74,3 +75,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 render(store, appRoutes);
+
+const fetchAll = async () => {
+  await store.dispatch(fetchDilemmaIds());
+  const dilemmas = Object.keys(store.getState().entities.dilemmas);
+  await store.dispatch(fetchDilemmas(dilemmas));
+  const cases = Object.keys(store.getState().entities.cases);
+  await store.dispatch(fetchCases(cases));
+};
+
+fetchAll();

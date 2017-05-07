@@ -5,13 +5,12 @@ import { Toolbar } from 'material-ui/Toolbar';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
-import Footer from './Footer';
-import AddTodo from '../containers/AddTodo';
-import VisibleTodoList from '../containers/VisibleTodoList';
+import VisibleDilemmaList from '../containers/VisibleDilemmaList';
+import NetworkState from '../containers/NetworkState';
 
 const App = () => (
   <div>
-    <AppBar title="To do app" iconClassNameRight="muidocs-icon-navigation-expand-more" />
+    <AppBar title="To do app" iconElementRight={<NetworkState />} />
     <Toolbar />
     <br />
     <Grid fluid>
@@ -20,17 +19,13 @@ const App = () => (
           <Card>
             <CardHeader title="The to do list" subtitle="Your list of things to be done." />
             <CardText>
-              <VisibleTodoList />
+              <VisibleDilemmaList />
             </CardText>
             <Divider />
             <Subheader>Add todos</Subheader>
-            <CardText>
-              <AddTodo />
-            </CardText>
+            <CardText />
             <Divider />
-            <CardActions>
-              <Footer />
-            </CardActions>
+            <CardActions />
           </Card>
         </Col>
       </Row>
